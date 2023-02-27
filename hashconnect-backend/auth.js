@@ -8,13 +8,13 @@ const clientPuk= PublicKey.fromString(process.env.A2_pub_key);
 const clientPvk = PrivateKey.fromString(process.env.A2_pkey);
 const clientID = process.env.A2_account_id;
 
+const sendAuth=()=>{
+    
 let payload = {
     url:'http://localhost:3000',
     data:{ token:"skfhsdkfhksdfhsdkfhksdfhskfhsfkfkdh"}
 };
 
-const sendAuth=()=>{
-    
     const bytes = new Uint8Array(Buffer.from(JSON.stringify(payload)));
     const signature = clientPvk.sign(bytes);
 
@@ -25,16 +25,16 @@ const sendAuth=()=>{
     
 };
 
+
 const recieveAuth = async( signingAccount,res)=>{
      const publickey = clientPvk.publicKey
-     let url = "https://testnet.mirrornode.hedera.com/api/v1/accounts/" + this.signingAccount;
+     let url = "https://testnet.mirrornode.hedera.com/api/v1/accounts/" + signingAccount;
 
      const accountInfoResponse = await fetch(url,{method:"GET"});
      if(accountInfoResponse.ok){
         let data = await accountInfoResponse.json();
 
-        if(!res.signedPayload) return ;
-
+        if(!res.signedPayload) return('no ojectioon ') ;
         const serverSignasArr = Object.values(res.signedPayload.serverSignature);
         const serverSignAsBuffer= Buffer.from(serverSignasArr);
 
@@ -52,7 +52,7 @@ const recieveAuth = async( signingAccount,res)=>{
         }
      }
      else{
-        alert("Getting Public Key")
+        return("Getting Public Key")
      }
 
 }

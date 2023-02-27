@@ -1,6 +1,32 @@
 import {HashConnect} from 'hashconnect';
 // import { HashConnect } from 'hashconnect/dist/cjs/main';
 
+import React from 'react'
+
+export default function pairing() {
+  return (
+    <div>pairing </div>
+  )
+}
+
+class Pairing{
+    constructor(appMetadata,Hedera_Network){
+        this.appMetadata=appMetadata
+        this.Hedera_Network=Hedera_Network
+        
+    }  
+    pair(){ 
+        const pair = async()=>{
+            let hashconnect = new HashConnect();
+            let initData = await hashconnect.init(this.appMetadata,this.Hedera_Network,false);
+            
+        }
+
+    }
+
+    
+}
+
 let pairing = async()=>{
     let appMetadata = { 
         url : 'http://localhost:3000',
@@ -16,7 +42,7 @@ console.log(hashconnect);
 
 console.log('hash connect is imported ');
 
-let initData = await hashconnect.init(appMetadata,'testnet',true);
+let initData = await hashconnect.init(appMetadata,'testnet',false);
 // 
 let privatekey = initData.privkey;
 
@@ -37,6 +63,3 @@ hashconnect.findLocalWallets();
 hashconnect.connectToLocalWallet(pairingstring);
 
 }
-
-export default pairing;
-

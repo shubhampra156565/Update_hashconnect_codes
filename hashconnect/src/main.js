@@ -1,11 +1,14 @@
-function main(props){
+function Main(props){
     return (
         <div>
         <ul id="list">
-             <li>
-                account ={props.accountid}
-             </li>
+             <p>
+                account ={props.hashdata}
+             </p>
         </ul>
         </div>
     )
 }
+export default Main;
+
+
