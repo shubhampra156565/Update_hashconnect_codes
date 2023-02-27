@@ -5,5 +5,9 @@ const  { TokenCreateTransaction, Client, TokenType, TokenInfoQuery, Hbar, Public
 // const { Buffer } = require("node:buffer");
 
 export const tokensell = async ()=>{
-    console.log('hi form the token buy');
+    console.log('hi form the token sell');
+    
+
 };
+
+

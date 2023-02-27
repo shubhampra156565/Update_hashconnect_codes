@@ -49,7 +49,7 @@ function App() {
             tokensell();
           }
         }>
-          sell tokens 
+          sell tokens
         </button>
       </header>
     </div>
